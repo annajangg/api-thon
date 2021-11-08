@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(13, 17, 29)
+}
+
+.heading {
+    font-family: 'Space Mono', monospace;
+    color: #fff;
+    font-size: 60px;
+}
+
+.heading-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    margin: -240px 0 0 -280px;
+}
+
+.heading-content {
+    font-family: 'Space Mono', monospace;
+    color: #fff;
+    font-size: 20px;
+    width: 75%;
+}
+
+.content-div {
+    background-color: #405578a0;
+    border-radius: 4px;
+    border-style: double;
+    border-width: 6px;
+    border-color: #596598;
+    width: 500px;
+    height: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin: -170px 0 0 -270px;
+}
