@@ -5,26 +5,17 @@ from livereload import Server
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template('index.html')
-
-
-@app.route('/user<int:user>')
-def user(user):
-    return f'You are user {user}'
-
-
-ButtonPressed = 0
-
-
-@app.route('/quiz', methods=["GET", "POST"])
-def button():
     if request.method == "POST":
 
-        return render_template("quiz.html", ButtonPressed='goodbye')
-        # I think you want to increment, that case ButtonPressed will be plus 1.
-    return render_template("quiz.html", ButtonPressed='hello')
+        object_name = request.form['object_name']
+
+        if object_name == '':
+            return render_template("index.html")
+
+        return render_template("result.html", object_name=object_name)
+    return render_template('index.html')
 
 
 if __name__ == '__main__':

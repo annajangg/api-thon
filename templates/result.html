@@ -20,20 +20,9 @@
                 <p class="heading-content">This is a landing page for the HACK110 API workshop. Feel free to edit this text!</p>
             </div>
             <div class="content-div">
-                <form method="post">
-                    <label for="2object_name">Pick an object: </label>
-                    <br />
-                    <input type="text" name="2object_name">
-                    <label for="object_name">Pick an object:</label>
-                    <select name="object_name">
-                        <option value="Pluto">Pluto</option>
-                        <option value="Ceras">Ceras</option>
-                        <option value="Cordelia">Cordelia</option>
-                        <option value="Saturn">Saturn</option>
-                    </select>
-                    <br />
-                    <br />
-                    <input type="submit" value="Submit">
+                <p>Your celestial object is {{ object_name }}!</p>
+                <form method="get">
+                    <input type="submit" value="Pick a new object!">
                 </form>
             </div>
         </div>
