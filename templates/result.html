@@ -32,10 +32,26 @@
         </p>
       </div>
       <div class="content-div">
-        <p>Your celestial object is {{ object_name }}!</p>
-        <form method="get">
-          <input type="submit" value="Pick a new object!" />
-        </form>
+        <div class="content-text">
+          <img src="{{url_for('static', filename=url)}}" alt="planet image">
+          <form method="get">
+            <input type="submit" value="Pick a new object!" id="go-button"/>
+          </form>
+        </div>
+        <div class="content-text">
+            <p>Your celestial object is {{ object_name }}!</p>
+            <p>Its gravity is {{gravity}} m.s^2</p>
+            {% if discovered_by != "" %}
+              <p>It was discovered by {{discovered_by}} on {{discovery_date}}</p>
+            {% endif %}
+            {% if moons != [] %}
+              <span>Its moon(s) is(are):</span>
+                {% for moon in range(moons|length-1) %}
+                  {{moons[moon]}},
+                {% endfor -%}
+                {{" and " + moons[moon|length-1]}}
+            {% endif %}
+        </div>
       </div>
     </div>
   </body>

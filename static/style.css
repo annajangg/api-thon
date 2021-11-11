@@ -10,15 +10,6 @@ body {
     font-family: 'Space Mono', monospace;
     color: #fff;
     font-size: 60px;
-    display: inline-block;
-    overflow: hidden;
-    animation: typing 2s steps(25, end), blink .75s step-end infinite;
-    white-space: nowrap;
-}
-
-@keyframes typing {
-    from { width: 0% }
-    to { width: 100% }
 }
 
 .heading-wrapper {
@@ -38,19 +29,37 @@ body {
 /** ---------------------- CONTENT ---------------------- **/
 
 .content-div {
-    background-color: #405578a0;
+    background-color: #405578ae;
     border-radius: 4px;
     border-style: double;
     border-width: 6px;
     border-color: #596598;
     width: 500px;
-    height: 300px;
+    height: auto;
     padding: 20px;
     position: absolute;
     top: 60%;
     left: 50%;
     margin: -170px 0 0 -270px;
-    font-family: 'Space Mono', monospace;
-    color: #fff;
+    display: flex;
 }
 
+.content-text {
+    font-family: 'Space Mono', monospace;
+    color: #fff;
+    display: inline-block;
+    overflow: hidden;
+    width: 250px;
+    flex: 50%;
+}
+
+#go-button {
+    background-color: #5b6698;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    margin-top: 20px;
+} 
+
+img {
+    max-width: 90%;
+}

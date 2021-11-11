@@ -32,21 +32,30 @@
         </p>
       </div>
       <div class="content-div">
+        <div class="content-text">
         <form method="post">
-          <label for="1object_name">Pick an object: </label>
-          <br />
-          <input type="text" name="object_name" />
           <label for="1object_name">Pick an object:</label>
           <select name="object_name">
-            <option value="Pluto">Pluto</option>
-            <option value="Ceras">Ceras</option>
-            <option value="Cordelia">Cordelia</option>
+            <option value="Mercury">Mercury</option>
+            <option value="Venus">Venus</option>
+            <option value="Earth">Earth</option>
+            <option value="Mars">Mars</option>
+            <option value="Jupiter">Jupiter</option>
             <option value="Saturn">Saturn</option>
+            <option value="Uranus">Uranus</option>
+            <option value="Neptune">Neptune</option>
+            <option value="Pluto">Pluto</option>
           </select>
           <br />
-          <br />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" id="go-button"/>
         </form>
+      </div>
+      <div class="content-text">
+        <form method="post">
+          <label form="object_name">Or:</label>
+          <input type="submit" value="I'm feeling lucky" id="go-button"/>
+        </form>
+      </div>
       </div>
     </div>
   </body>
