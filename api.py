@@ -26,18 +26,23 @@ bored_api_response.url  # the url that was sent with the request (more interesti
 # https://api.agify.io, returns average age for people with a given name (passed as a parameter)
 # 
 
+def grab_url(planet: str) -> str:
+    return f"/{planet.lower()}.jpg"
+
+
+
 # name = "io"
 # space_res = get(f"https://api.le-systeme-solaire.net/rest/bodies/{name}")
 # space_data = space_res.json()
 # print(space_data)
 
-space_res = get("https://api.le-systeme-solaire.net/rest/bodies/", params={"order": "eccentricity,asc"})
-data = space_res.json()["bodies"]
-for s in data:
-    if str(s["eccentricity"]) != "":
-        print(s["id"], end="")
-        print(f": {s['englishName']} {str(s['eccentricity'])}", end="")
-        print()
+# space_res = get("https://api.le-systeme-solaire.net/rest/bodies/", params={"order": "eccentricity,asc"})
+# data = space_res.json()["bodies"]
+# for s in data:
+#     if str(s["eccentricity"]) != "":
+#         print(s["id"], end="")
+#         print(f": {s['englishName']} {str(s['eccentricity'])}", end="")
+#         print()
 
 # refined_res = get("https://api.le-systeme-solaire.net/rest/bodies/io")
 # print(refined_res.json())
