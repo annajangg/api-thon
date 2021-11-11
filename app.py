@@ -3,7 +3,7 @@ from flask.templating import Environment
 from livereload import Server
 from requests import get
 from requests.models import Response
-from api import grab_url
+from api import grab_url, random_body
 
 app = Flask(__name__)
 
@@ -11,15 +11,19 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 async def index():
     if request.method == "POST":
-
-        object_name = str(request.form['object_name'])
-
         # TODO: make your api request for the object the user specified
         # space_res = get("https://api.le-systeme-solaire.net/rest/bodies/", params={"order": "eccentricity,asc"})
         # data = space_res.json()["bodies"]
+
+        space_res = get(f"https://api.le-systeme-solaire.net/rest/bodies/")
+        try:
+            object_name = str(request.form['object_name'])
+        except:
+            object_name_dict = random_body(space_res.json()["bodies"])
+            object_name - object_name_dict['name']
+
         refined_res = get(f"https://api.le-systeme-solaire.net/rest/bodies/{object_name}")
         data = refined_res.json()
-
         gravity: float = data["gravity"]
         discovered_by: str = data["discoveredBy"]
         discovery_date: str = data["discoveryDate"]
