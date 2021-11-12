@@ -1,6 +1,5 @@
 from requests import get
 from requests.models import Response
-from random import choice
 
 # 1. Starting small
 # https://boredapi.com/api/activity/, returns a random activity for you to do.
@@ -26,27 +25,11 @@ bored_api_response.url  # the url that was sent with the request (more interesti
 # https://api.agify.io, returns average age for people with a given name (passed as a parameter)
 # 
 
-def grab_url(planet: str) -> str:
-    return f"/{planet.lower()}.jpg"
-
-def random_body(bodies: list[str]):
-    return choice(bodies)
-
-# name = "io"
-# space_res = get(f"https://api.le-systeme-solaire.net/rest/bodies/{name}")
-# space_data = space_res.json()
-# print(space_data)
-
-space_res = get("https://api.le-systeme-solaire.net/rest/bodies/", params={"order": "eccentricity,asc"})
-data = space_res.json()["bodies"]
-print(choice(data))
-# for s in data:
-#     if str(s["eccentricity"]) != "":
-#         print(s["id"], end="")
-#         print(f": {s['englishName']} {str(s['eccentricity'])}", end="")
-#         print()
-
-# refined_res = get("https://api.le-systeme-solaire.net/rest/bodies/io")
-# print(refined_res.json())
+def grab_url(planet: str, is_planet: bool) -> str:
+    """Helper function to populate url variable in app.py. These files live in our 'static' folder."""
+    if is_planet:
+        return f"/{planet.lower()}.jpg"
+    else:
+        return f"/space.jpg"
 
 # 3. Requests with an API key

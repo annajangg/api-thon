@@ -6,20 +6,7 @@
     <link rel="stylesheet" href="static/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IM+Fell+French+Canon&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet"/>
     <title>API DEMO</title>
   </head>
   <body>
@@ -40,7 +27,9 @@
         </div>
         <div class="content-text">
             <p>Your celestial object is {{ object_name }}!</p>
-            <p>Its gravity is {{gravity}} m.s^2</p>
+            {% if temp != 0 %}
+              <p>Its average temperature is {{temp}} K</p>
+            {% endif %}
             {% if discovered_by != "" %}
               <p>It was discovered by {{discovered_by}} on {{discovery_date}}</p>
             {% endif %}
